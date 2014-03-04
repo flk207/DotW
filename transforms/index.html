@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CSS3 Animations</title>
+<style type="text/css">
+
+/*svg element*/
+#square {
+	fill: url(#sky);
+	position:absolute;
+	left:8px;
+	top:8px;
+	z-index:-1;
+}
+
+
+/*wave grass with 2d transform*/
+#grass {
+	position:absolute;
+	left:8px;
+	top:358px;
+	z-index:3;
+}
+
+#grass:hover {
+	transform:skewX(-8deg) translateX(8px);
+	-webkit-transform:skewX(-8deg) translateX(8px) ;
+}
+
+/*turn flower to sun with 3d transform*/
+#flower {
+	z-index:2;
+	-webkit-transform: rotate3d(0, -1, 0, 180deg);
+	transform: rotate3d(0, -1, 0, 180deg);
+	position:absolute;
+	top:-100px;
+	left:-40px;
+}
+
+#flowerperspective {
+	position:absolute;
+	top:92px;
+	left:258px;
+	height:400px;
+	width:300px;
+	background-image:url(flowerstroke.png);
+	background-repeat:no-repeat;
+	position:absolute;	
+	z-index:1;
+	perspective-origin:center left;
+	-webkit-perspective-origin: center left;
+	-webkit-perspective:1000px;
+	perspective:1000px;
+}
+
+/*animate birds with keyframes and iterations*/
+#birds {
+	position:absolute;	
+	left:-350px;
+	top:8px;
+	z-index:2;
+	transform-origin: 50% 50%;
+	-webkit-transform-origin: 50% 50%;
+	animation: appear 3s;
+	-webkit-animation: appear 3s;
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+	animation-direction: alternate;
+	-webkit-animation-direction: alternate;
+	animation-timing-function:ease;
+	-webkit-transition-timing-function:ease;
+}
+
+
+@keyframes appear {
+	from {transform: scale(0, 0);}
+	to {transform: scale(1, 1);}
+}
+
+
+@-webkit-keyframes appear {
+	from {-webkit-transform: scale(0, 0);}
+	to {-webkit-transform: scale(1, 1);}
+}
+
+/*make sun glow with transition with duration*/
+#sun {
+	position:absolute;	
+	left:8px;
+	top:8px;
+	z-index:1;
+	background-color:transparent;
+	transition-property: color transform;
+	transition-duration: 3s;
+	transition-timing-function: ease;
+	-webkit-transition-timing-function: ease;
+}
+
+#sun:hover {
+	background-color:white;
+	opacity:0.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<svg>
+<linearGradient id="sky" gradientUnits="userSpaceOnUse" x1="248.9995" y1="501.0005" x2="248.9995" y2="1">
+
+		<stop  offset="0" style="stop-color:#CCE0F4"/>
+
+		<stop  offset="0.0474" style="stop-color:#C3DCF2"/>
+
+		<stop  offset="0.1262" style="stop-color:#A9D2EE"/>
+
+		<stop  offset="0.2268" style="stop-color:#80C2E7"/>
+
+		<stop  offset="0.3439" style="stop-color:#47ACDE"/>
+
+		<stop  offset="0.4198" style="stop-color:#1E9CD7"/>
+
+		<stop  offset="0.6554" style="stop-color:#0075BE"/>
+
+		<stop  offset="0.9944" style="stop-color:#005B97"/>
+
+	</linearGradient>
+	
+<g id="square">
+
+	<rect x="-1" y="1" width="1000" height="500"/>
+
+</g>
+
+</svg>
+<img src="sunshine.png" id="sun" />
+<img src="grass.png" id="grass" />
+<img src="birds.png" id="birds" />
+<div id="flowerperspective">
+<img src="sunflower.png" id="flower" />
+</div>
+
+
+
+</body>
+</html>
+

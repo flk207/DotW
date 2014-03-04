@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Assignment 1: Scalable Vector Graphics</title>
+
+<style type="text/css">
+#container {
+	width: 500px;
+	height: 100%;
+	margin: auto;
+}
+
+#collage {
+	height: 500px;
+	position:absolute;
+	top:50%;
+	margin-top:-250px;
+}
+
+#bubbles {
+	opacity: 0.6;
+	fill: aqua;
+}
+
+#square {
+	fill: url(#ocean);
+}
+
+#bubbles:hover {
+	filter: url(#spotlight);
+	
+}
+
+#fish:hover {
+	filter: url(#dropshadow);
+}
+
+#square:hover {
+	filter: url(#brighten);
+}
+
+#starfish:hover {
+	filter: url(#blur);
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div id="container">
+<div id="collage">
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="500px"
+
+	 height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+	
+
+<defs>
+<filter id ="brighten">
+       <feSpecularLighting specularExponent="5" lighting-color="CornflowerBlue">
+              <fePointLight x="250" y="250" z="250"/>
+       </feSpecularLighting>
+</filter>
+</defs>
+
+<linearGradient id="ocean" gradientUnits="userSpaceOnUse" x1="248.9995" y1="1" x2="248.9995" y2="501.0005">
+
+		<stop  offset="0" style="stop-color:#CCE0F4"/>
+
+		<stop  offset="0.0474" style="stop-color:#C3DCF2"/>
+
+		<stop  offset="0.1262" style="stop-color:#A9D2EE"/>
+
+		<stop  offset="0.2268" style="stop-color:#80C2E7"/>
+
+		<stop  offset="0.3439" style="stop-color:#47ACDE"/>
+
+		<stop  offset="0.4198" style="stop-color:#1E9CD7"/>
+
+		<stop  offset="0.6554" style="stop-color:#0075BE"/>
+
+		<stop  offset="0.9944" style="stop-color:#005B97"/>
+
+	</linearGradient>
+	
+<a xlink:href="http://en.wikipedia.org/wiki/Ocean">
+<g id="square">
+
+	<rect x="-1" y="1" width="500" height="500"/>
+
+</g>
+</a>
+
+
+<defs>
+ <filter id="spotlight">
+    <feColorMatrix type="matrix"  
+        values=
+            "0 0 0 0   0
+             0 0.9 0 0.9 0 
+             0 0.9 0 0.9 0 
+             0 0 0 1   0"/>
+    <feGaussianBlur stdDeviation="15" result="coloredBlur"/> 
+    <feMerge>   
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+</filter>
+</defs>
+
+<a xlink:href="http://en.wikipedia.org/wiki/Bubbles">
+<g id="bubbles">
+
+
+		<circle fill="#3FD1FF" cx="270.236" cy="238.126" r="18.897"/>
+
+		<circle fill="#3FD1FF" cx="238.929" cy="134.819" r="12.205"/>
+
+		<circle fill="#3FD1FF" cx="285.929" cy="172.433" r="25.59"/>
+
+
+</g>
+</a>
+
+<defs>
+
+<filter id="dropshadow">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+	    <feOffset in="blur" dx="6" dy="6" result="offsetBlur" />
+		<feMerge>
+        <feMergeNode in="offsetBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+</filter>
+
+</defs>
+<a xlink:href="http://en.wikipedia.org/wiki/Orange_clownfish">
+<g id="fish">
+	
+		<image overflow="visible" width="829" height="562" xlink:href="fish.png"  transform="matrix(0.24 0 0 0.24 46.5513 241.6865)">
+
+	</image>
+
+</g>
+</a>
+
+
+<defs>
+	<filter id="blur">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="8" />
+	</filter>
+</defs>
+<a xlink:href="http://en.wikipedia.org/wiki/Starfish">
+<g id="starfish">
+
+
+		<path fill="#662D91" d="M378.647,361.491c1.044-8.185,6.692-10.129,12.554-4.323l11.015,10.914
+
+			c5.861,5.806,17.288,9.3,25.394,7.764l15.235-2.889c8.105-1.536,11.701,3.235,7.989,10.604l-6.974,13.848
+
+			c-3.712,7.368-3.503,19.315,0.463,26.55l7.454,13.597c3.966,7.234,0.539,12.129-7.615,10.877l-15.326-2.354
+
+			c-8.154-1.252-19.453,2.639-25.107,8.646l-10.627,11.29c-5.654,6.007-11.368,4.26-12.697-3.882l-2.497-15.304
+
+			c-1.329-8.142-8.521-17.685-15.98-21.206l-14.022-6.619c-7.46-3.521-7.564-9.495-0.231-13.274l13.783-7.104
+
+			c7.333-3.779,14.187-13.567,15.23-21.752L378.647,361.491z"/>
+
+		<path fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" d="M378.647,361.491
+
+			c1.044-8.185,6.692-10.129,12.554-4.323l11.015,10.914c5.861,5.806,17.288,9.3,25.394,7.764l15.235-2.889
+
+			c8.105-1.536,11.701,3.235,7.989,10.604l-6.974,13.848c-3.712,7.368-3.503,19.315,0.463,26.55l7.454,13.597
+
+			c3.966,7.234,0.539,12.129-7.615,10.877l-15.326-2.354c-8.154-1.252-19.453,2.639-25.107,8.646l-10.627,11.29
+
+			c-5.654,6.007-11.368,4.26-12.697-3.882l-2.497-15.304c-1.329-8.142-8.521-17.685-15.98-21.206l-14.022-6.619
+
+			c-7.46-3.521-7.564-9.495-0.231-13.274l13.783-7.104c7.333-3.779,14.187-13.567,15.23-21.752L378.647,361.491z"/>
+
+
+
+</g>
+</a>
+</svg>
+
+
+
+</div>
+</div>
+
+
+
+</body>
+</html>
